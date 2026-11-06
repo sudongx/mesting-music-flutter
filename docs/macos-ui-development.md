@@ -71,13 +71,13 @@ flutter test --no-pub --flavor stable \
 flutter test --no-pub --flavor beta test/beta5_ui_test.dart
 ```
 
-本机首次完整回归出现 Node.js 缺失，补装后桥接测试通过。完整复跑仍有
-本地 TLS fixture 校验错误与一次取消握手超时，具体数量及复测见验证记录。
-独立 Dart loopback 探针也拒绝该 fixture，后续需要进一步定位 macOS 兼容性。
+本机首次完整回归出现 Node.js 缺失，补装后桥接测试通过。长期 TLS fixture
+在本机校验失败，macOS 测试现使用系统 OpenSSL 与公开测试密钥，在临时目录
+生成 365 天有效的证书并在测试后清理。单文件 8 项及完整 Beta 回归 2291 项均已通过，1 项条件跳过。
 
 本轮本机 `flutter build apk --debug --flavor beta` 构建通过，产物为
-`build/app/outputs/flutter-apk/app-beta-debug.apk`。真机使用下载并核验的原版
-Release。构建过程按插件要求补装 SDK 33–35、Build Tools 35 和 CMake 3.22.1。
+`build/app/outputs/flutter-apk/app-beta-debug.apk`。构建过程按插件要求补装
+SDK 33–35、Build Tools 35 和 CMake 3.22.1。
 
 ## 真机与 UI 验收
 
@@ -89,7 +89,19 @@ Release。构建过程按插件要求补装 SDK 33–35、Build Tools 35 和 CMa
 - 签名证书 SHA-256 为 `8ce2203ad821ad8d38576f9ae86350d98254ac05f2cb974e773c1973b22e0333`。
 
 安装前通过 `apksigner verify --print-certs` 校验证书，通过 SHA-256 校验下载。
-后续原应用升级需要取得原签名私有配置，并核对包名、证书及递增版本号。
+
+用户确认本分支负责 UI 开发，发行由原仓库主人合并代码后打包。Beta Debug
+采用 `com.mesting.music.dev` 与本机调试签名，可独立安装并通过 Flutter 热重载。
+在项目根目录执行下列命令，设备标识取自 `adb devices -l`。
+
+```sh
+flutter run --debug --flavor beta -d DEVICE_SERIAL \
+  --dart-define=USE_CLOUDBASE_AUTH=true \
+  --dart-define=ENABLE_APP_UPDATE_CHECKS=false
+```
+
+本轮已验证调试包安装、启动、DevTools 连接及热重载。首次使用调试包时，
+在手机上完成欢迎页的协议确认及游客体验或登录。
 
 UI 验收逐项采集首页、播放器、搜索和个人页的浅色与深色对照，检查窄屏、
 大字体、键盘、安全区、滚动和播放状态切换。玻璃按钮遵循

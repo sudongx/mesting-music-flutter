@@ -56,18 +56,41 @@ void main() {
   const channel = MethodChannel('com.mesting.music/network');
   final messenger =
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
-  setUpAll(() {
+  var certificate = 'test/support/tls155/certificate.pem';
+  setUpAll(() async {
     HttpOverrides.global = null;
-    SecurityContext.defaultContext.setTrustedCertificates(
-      'test/support/tls155/certificate.pem',
-    );
+    if (Platform.isMacOS) {
+      // macOS rejects the long-lived fixture during TLS verification. Issue a
+      // fresh short-lived fixture with the same public test key and hostnames.
+      final directory = await Directory.systemTemp.createTemp(
+        'mesting-tls155-',
+      );
+      addTearDown(() => directory.delete(recursive: true));
+      certificate = '${directory.path}/certificate.pem';
+      final result = await Process.run('/usr/bin/openssl', [
+        'req',
+        '-new',
+        '-x509',
+        '-sha256',
+        '-days',
+        '365',
+        '-key',
+        'test/support/tls155/public-test-key.pem',
+        '-config',
+        'test/support/tls155/certificate.cnf',
+        '-out',
+        certificate,
+      ]);
+      expect(result.exitCode, 0, reason: result.stderr.toString());
+    }
+    SecurityContext.defaultContext.setTrustedCertificates(certificate);
   });
   tearDownAll(() => HttpOverrides.global = overrides);
   tearDown(() => messenger.setMockMethodCallHandler(channel, null));
 
   Future<HttpServer> serve() async {
     final context = SecurityContext()
-      ..useCertificateChain('test/support/tls155/certificate.pem')
+      ..useCertificateChain(certificate)
       ..usePrivateKey('test/support/tls155/public-test-key.pem');
     final server = await HttpServer.bindSecure(
       InternetAddress.loopbackIPv4,

@@ -214,12 +214,35 @@
       ],
       "rawLog": ".codex-artifacts/ui-prep-2026-11-06/network-isolated.jsonl",
       "logSha256": "46448a00c3b2fd7a03b44328966a82b73f53dc0c25dc1f867ffaadbd9f64d67c"
+    },
+    "network-fixed": {
+      "files": 1,
+      "complete": true,
+      "passed": true,
+      "counts": {
+        "success": 8
+      },
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/network-fixed.jsonl",
+      "logSha256": "8063463d75ab5ced18e65c103ff922bf63f7cdbe7556c10875d496516be6fb83"
+    },
+    "beta-fixed-complete": {
+      "files": 199,
+      "complete": true,
+      "passed": true,
+      "counts": {
+        "success": 2291,
+        "skipped": 1
+      },
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/beta-fixed-complete.jsonl",
+      "logSha256": "bde3f0554f37b58eb03e5f83db9f8ecf0898d0089fa5af79aef01a777769950d"
     }
   },
   "hostFixtureInvestigation": {
     "file": "test/release_155_network_test.dart",
-    "isolatedDartProbeAlsoRejectedCertificate": true,
-    "rootCauseConfirmed": false
+    "finding": "On this macOS host the same isolated TLS probe rejected a 3650-day fixture and accepted a 365-day fixture with the same key, hostnames and extensions.",
+    "fix": "On macOS generate a fresh 365-day fixture using system OpenSSL and the public test key in a temporary directory, then clean up after the test group.",
+    "networkFilePassed": true,
+    "allBetaRegressionPassed": true
   },
   "device": {
     "model": "M2011K2C",
@@ -244,11 +267,12 @@
     "status": "passed",
     "exitCode": 0,
     "apk": "build/app/outputs/flutter-apk/app-beta-debug.apk",
-    "bytes": 239851028,
-    "sha256": "4287fdaa3f09722c83e83654b1a33319abf6c53deddb7ccbf33e66eb2fc0f2f2",
-    "installedOnDevice": false,
-    "rawLog": ".codex-artifacts/ui-prep-2026-11-06/android-debug-build.log",
-    "firstKotlinDaemonStartupWarningRetained": true
+    "package": "com.mesting.music.dev",
+    "bytes": 239851324,
+    "sha256": "86da7b1bcc668c288042d7bc7b6da223c32ecbf99cc144a11e638576d4f11c27",
+    "certificateSha256": "153f91fb572eb0e3612f80de0da33bbaf11d74676ff389bd2e9375e681c02b20",
+    "installedOnDevice": true,
+    "rawLog": ".codex-artifacts/ui-prep-2026-11-06/android-dev-build.log"
   },
   "github": {
     "authenticated": true,
@@ -263,10 +287,7 @@
     "prBase": "beta",
     "prHead": "sudongx:codex/ui-polish"
   },
-  "remainingInputs": [
-    "Original signing configuration for future modified-app upgrades",
-    "User completion of welcome screen for remaining device UI capture"
-  ],
+  "remainingInputs": [],
   "dependencyLockUnchangedAfterBuild": true,
   "initialGithub": {
     "authenticated": false,
@@ -274,5 +295,35 @@
     "pushDryRun": "failed, no HTTPS credentials",
     "pushed": false,
     "prCreated": false
-  }
+  },
+  "initialLocalAndroidDebugBuild": {
+    "status": "passed",
+    "exitCode": 0,
+    "apk": "build/app/outputs/flutter-apk/app-beta-debug.apk",
+    "bytes": 239851028,
+    "sha256": "4287fdaa3f09722c83e83654b1a33319abf6c53deddb7ccbf33e66eb2fc0f2f2",
+    "installedOnDevice": false,
+    "rawLog": ".codex-artifacts/ui-prep-2026-11-06/android-debug-build.log",
+    "firstKotlinDaemonStartupWarningRetained": true
+  },
+  "developmentDevice": {
+    "model": "M2011K2C",
+    "androidApi": 34,
+    "package": "com.mesting.music.dev",
+    "startupObserved": true,
+    "welcomeScreenObserved": true,
+    "vmServiceConnected": true,
+    "hotReloadVerified": true,
+    "hotReloadResult": "Reloaded 0 libraries in 737ms",
+    "screenshot": ".codex-artifacts/ui-prep-2026-11-06/dev-welcome.png"
+  },
+  "variantIdentityVerification": {
+    "betaDebug": "com.mesting.music.dev",
+    "betaRelease": "com.mesting.music",
+    "rawLog": ".codex-artifacts/ui-prep-2026-11-06/variant-identities.log"
+  },
+  "collaborationAgreement": "User confirmed development on the fork branch with local device debugging; upstream owner merges and packages releases.",
+  "releaseSigningOwner": "upstream maintainer",
+  "developmentReady": true,
+  "analysisLog": ".codex-artifacts/ui-prep-2026-11-06/analyze-fixed.log"
 }

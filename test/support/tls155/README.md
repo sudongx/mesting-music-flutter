@@ -9,3 +9,10 @@ The certificate is valid from 2020-01-01 through 2040-01-01 for
 `localhost`. Tests trust it only in their disposable Dart process and resolve
 the fixture names to loopback through a mock Android method channel. Nothing
 is installed in the operating system's trust store or used by production code.
+
+On macOS, the test creates a temporary certificate valid for 365 days using
+`/usr/bin/openssl`, `certificate.cnf` and the same public test key. The native
+verifier rejects the long-lived fixture on the development Mac. Generating the
+short-lived certificate at test startup keeps its dates current. The test
+registers directory cleanup before generation and uses the certificate for
+both its loopback server and its process-local trust context.

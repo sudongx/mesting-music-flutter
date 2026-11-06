@@ -69,7 +69,7 @@ android {
         }
         // The flavor still selects the existing UI/native libraries. From
         // 1.0.50 daily releases use the requested public package identity;
-        // only isolated profile benchmarks retain their separate sandbox.
+        // Beta Debug uses the development identity configured below.
         create("beta") {
             dimension = "distribution"
             applicationIdSuffix = if (benchmarkBuild)
@@ -87,6 +87,10 @@ android {
 }
 
 androidComponents {
+    onVariants(selector().withFlavor("distribution" to "beta").withBuildType("debug")) { variant ->
+        // Local signing supports hot reload in a separate development install.
+        variant.applicationId.set("com.mesting.music.dev")
+    }
     onVariants(selector().withBuildType("release")) { variant ->
         // SDK 1.1.2 also ships an x86 receive buffer. Formal Music APKs keep
         // their existing two ARM ABIs; an isolated x86 SDK library would not

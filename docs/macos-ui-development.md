@@ -99,16 +99,22 @@ UI 验收逐项采集首页、播放器、搜索和个人页的浅色与深色�
 
 ## GitHub 协同
 
-每项 UI 修改单独提交。验证完成后同步远程 `beta`，处理并发改动并重跑相关
-回归，然后推送 `codex/ui-polish`，创建以 `beta` 为目标分支的 PR。
+当前登录账号为 `sudongx`，对原仓库拥有 READ 权限。本机保留 `origin` 指向
+原仓库，增加 `fork` 指向 `sudongx/mesting-music-flutter`，已通过 Fork 提交
+[准备资料 PR #2](https://github.com/Mesting42/mesting-music-flutter/pull/2)。
+
+每项 UI 修改单独提交。验证完成后同步原仓库的 `beta`，处理并发改动并重跑相关
+回归，然后向 `fork` 推送 `codex/ui-polish`，更新以 `beta` 为目标分支的 PR。
 PR 记录修改范围、前后截图、实际测试结果和待验项目，推送后回读远端 SHA。
 
 ```sh
 gh auth status
 git fetch origin beta
 git merge origin/beta
-git push -u origin codex/ui-polish
-gh pr create --base beta --head codex/ui-polish
+git push -u fork codex/ui-polish
+# 创建新的 PR 时明确原仓库与 Fork 来源。
+gh pr create --repo Mesting42/mesting-music-flutter \
+  --base beta --head sudongx:codex/ui-polish
 ```
 
 本轮按环境准备任务提交接续资料。具体页面的 UI 修改在用户提供目标后逐项开展。

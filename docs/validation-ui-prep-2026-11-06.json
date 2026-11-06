@@ -251,16 +251,28 @@
     "firstKotlinDaemonStartupWarningRetained": true
   },
   "github": {
+    "authenticated": true,
+    "account": "sudongx",
+    "originalRepositoryPermission": "READ",
+    "pushRemote": "fork",
+    "forkRepository": "sudongx/mesting-music-flutter",
+    "pushed": true,
+    "verifiedPreparationCommit": "6812ec3",
+    "prCreated": true,
+    "prUrl": "https://github.com/Mesting42/mesting-music-flutter/pull/2",
+    "prBase": "beta",
+    "prHead": "sudongx:codex/ui-polish"
+  },
+  "remainingInputs": [
+    "Original signing configuration for future modified-app upgrades",
+    "User completion of welcome screen for remaining device UI capture"
+  ],
+  "dependencyLockUnchangedAfterBuild": true,
+  "initialGithub": {
     "authenticated": false,
     "deviceAuthorizationExpired": true,
     "pushDryRun": "failed, no HTTPS credentials",
     "pushed": false,
     "prCreated": false
-  },
-  "remainingInputs": [
-    "GitHub authentication with repository write permission",
-    "Original signing configuration for future modified-app upgrades",
-    "User completion of welcome screen for remaining device UI capture"
-  ],
-  "dependencyLockUnchangedAfterBuild": true
+  }
 }

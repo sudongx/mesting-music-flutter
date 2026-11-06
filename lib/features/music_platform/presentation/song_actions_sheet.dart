@@ -24,6 +24,7 @@ import '../netease/fallback/netease_source_picker.dart';
 import 'platform_catalog_detail_page.dart';
 import 'platform_comments_page.dart';
 import 'platform_feedback.dart';
+import '../../themes/music_typography.dart';
 
 class SongMenuExtraAction {
   const SongMenuExtraAction(
@@ -289,7 +290,7 @@ class _SongActionsPanelState extends ConsumerState<SongActionsPanel> {
           label,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 16, color: color),
+          style: TextStyle(fontSize: MusicTypography.calloutSize, color: color),
         ),
         onTap: () => widget.onSelect(intent),
       );
@@ -328,8 +329,8 @@ class _SongActionsPanelState extends ConsumerState<SongActionsPanel> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
+                              fontSize: MusicTypography.bodySize,
+                              fontWeight: MusicTypography.titleWeight,
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -338,7 +339,7 @@ class _SongActionsPanelState extends ConsumerState<SongActionsPanel> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: 13,
+                              fontSize: MusicTypography.footnoteSize,
                               color: scheme.onSurfaceVariant,
                             ),
                           ),
@@ -558,8 +559,8 @@ Future<void> _openSongInfo(
                     ? '歌手'
                     : '专辑',
                 style: const TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w700,
+                  fontSize: MusicTypography.sectionTitleSize,
+                  fontWeight: MusicTypography.titleWeight,
                 ),
               ),
               const SizedBox(height: 16),

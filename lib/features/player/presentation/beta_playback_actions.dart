@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/audio/playback_providers.dart';
 import '../../../shared/models/track.dart';
 import '../../music_platform/presentation/platform_feedback.dart';
+import '../../themes/music_typography.dart';
 
 /// A single entry point for deliberate Beta playback. Page contents are never
 /// an implicit queue: only Play All and explicit Add actions populate it.
@@ -45,20 +46,20 @@ Future<bool> _playSelection(
     final choice = await showCupertinoDialog<bool>(
       context: context,
       builder: (context) => CupertinoAlertDialog(
-        title: const Text('接下来播放什么？'),
+        title: const Text('接下来播放什么？', style: MusicTypography.titleEmphasis),
         content: const Text('播放所选音乐后，保留原来的待播歌曲，或替换待播列表。'),
         actions: [
           CupertinoDialogAction(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('保留待播歌曲'),
+            child: const Text('保留待播歌曲', style: MusicTypography.regularText),
           ),
           CupertinoDialogAction(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('替换待播歌曲'),
+            child: const Text('替换待播歌曲', style: MusicTypography.regularText),
           ),
           CupertinoDialogAction(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: const Text('取消', style: MusicTypography.regularText),
           ),
         ],
       ),

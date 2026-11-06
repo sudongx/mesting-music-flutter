@@ -23,6 +23,7 @@ import 'platform_collection_play.dart';
 import 'platform_comments_page.dart';
 import 'platform_feedback.dart';
 import 'platform_ranking_header.dart';
+import '../../themes/music_typography.dart';
 
 /// Public discovery/search playlists share the chart presentation, while their
 /// business operations keep the real playlist identity. Personal cloud pages
@@ -346,8 +347,8 @@ class _PublicHeaderState extends ConsumerState<PlatformPublicPlaylistHeader> {
                               ? '读取完整歌单'
                               : '播放全部${count == null ? '' : '（$count）'}',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
+                            fontSize: MusicTypography.bodySize,
+                            fontWeight: MusicTypography.titleWeight,
                             color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),

@@ -17,6 +17,7 @@ import 'beta_bottom_bar.dart';
 import 'playback_pill_menu.dart';
 import 'playback_pill_track_motion.dart';
 import 'playback_pill_artwork.dart';
+import '../../themes/music_typography.dart';
 
 /// Official Apple Music example's GlassButton.custom play pill (MIT), with live
 /// Mesting media/actions. The package owns press/spring/refraction, while the
@@ -204,8 +205,8 @@ class _FloatingPlaybackPillState extends ConsumerState<FloatingPlaybackPill> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: foreground,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
+                                    fontWeight: MusicTypography.bodyWeight,
+                                    fontSize: MusicTypography.subheadlineSize,
                                   ),
                                 ),
                                 if (!compact ||
@@ -219,7 +220,7 @@ class _FloatingPlaybackPillState extends ConsumerState<FloatingPlaybackPill> {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: foreground.withValues(alpha: .7),
-                                      fontSize: 12,
+                                      fontSize: MusicTypography.captionSize,
                                     ),
                                   ),
                               ],

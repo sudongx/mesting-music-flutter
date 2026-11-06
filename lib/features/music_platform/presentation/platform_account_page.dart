@@ -25,6 +25,7 @@ import '../music_platform_providers.dart';
 import '../../auth/auth_providers.dart';
 import '../platform_profile_provider.dart';
 import 'platform_avatar.dart';
+import '../../themes/music_typography.dart';
 
 /// Uses Mesting's inherited theme, with account state owned entirely outside
 /// CloudBase. Closing this route cancels scans without affecting either login.
@@ -383,7 +384,7 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                 : TextInputType.phone,
             enabled: !_busy,
             autofillHints: const [AutofillHints.username],
-            style: const TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: MusicTypography.bodySize),
             decoration: InputDecoration(
               labelText: widget.neteaseMethod == NeteaseLoginMethod.email
                   ? '网易邮箱'
@@ -403,7 +404,7 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
             autocorrect: false,
             enabled: !_busy,
             autofillHints: const [AutofillHints.password],
-            style: const TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: MusicTypography.bodySize),
             decoration: const InputDecoration(labelText: '密码'),
             onSubmitted: (_) => _phoneLogin(),
           ),
@@ -489,8 +490,8 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                           child: Text(
                             title,
                             style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w700,
+                              fontSize: MusicTypography.titleSize,
+                              fontWeight: MusicTypography.titleWeight,
                               color: scheme.onSurface,
                             ),
                           ),
@@ -571,7 +572,7 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                                 ? '使用网易云音乐账号，继续你的音乐。'
                                 : '使用酷狗账号手机号，继续你的音乐。',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: MusicTypography.subheadlineSize,
                               height: 1.6,
                               color: scheme.onSurfaceVariant,
                             ),
@@ -601,7 +602,9 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                                       autofillHints: const [
                                         AutofillHints.telephoneNumberNational,
                                       ],
-                                      style: const TextStyle(fontSize: 18),
+                                      style: const TextStyle(
+                                        fontSize: MusicTypography.bodySize,
+                                      ),
                                       decoration: const InputDecoration(
                                         hintText: '手机号码',
                                         prefixIcon: Padding(
@@ -611,7 +614,10 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                                           ),
                                           child: Text(
                                             '+86',
-                                            style: TextStyle(fontSize: 17),
+                                            style: TextStyle(
+                                              fontSize:
+                                                  MusicTypography.bodySize,
+                                            ),
                                           ),
                                         ),
                                         prefixIconConstraints: BoxConstraints(
@@ -647,7 +653,7 @@ class _PlatformAccountPageState extends ConsumerState<PlatformAccountPage> {
                           Text(
                             '使用${_label(_method).replaceAll('扫码', '')}扫描二维码并确认登录。',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: MusicTypography.subheadlineSize,
                               height: 1.6,
                               color: scheme.onSurfaceVariant,
                             ),
@@ -764,7 +770,9 @@ class _InlineCodeField extends StatelessWidget {
             text: text,
             style: textStyle.copyWith(
               fontSize: fontSize,
-              fontWeight: bold ? FontWeight.w700 : FontWeight.normal,
+              fontWeight: bold
+                  ? MusicTypography.titleWeight
+                  : MusicTypography.bodyWeight,
             ),
           ),
           textDirection: Directionality.of(context),
@@ -814,7 +822,7 @@ class _InlineCodeField extends StatelessWidget {
                 '验证码',
                 key: const ValueKey('beta11-code-label'),
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: MusicTypography.subheadlineSize,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),

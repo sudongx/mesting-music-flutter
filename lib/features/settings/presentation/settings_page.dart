@@ -34,6 +34,7 @@ import 'music_sleep_timer_sheet.dart';
 import '../../music_platform/presentation/music_effects_page.dart';
 import '../../music_platform/platform_backend_providers.dart';
 import '../../music_platform/netease/netease_playback_settings_page.dart';
+import '../../themes/music_typography.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
@@ -551,9 +552,9 @@ class _SettingsHeader extends StatelessWidget {
                 '设置',
                 style: TextStyle(
                   color: tokens.textPrimary,
-                  fontSize: 27,
+                  fontSize: MusicTypography.titleSize,
                   height: 1.05,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: MusicTypography.titleWeight,
                   letterSpacing: -.7,
                 ),
               ),
@@ -562,8 +563,8 @@ class _SettingsHeader extends StatelessWidget {
                 '外观、播放、账号与应用偏好',
                 style: TextStyle(
                   color: tokens.textSecondary,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
+                  fontSize: MusicTypography.smallCaptionSize,
+                  fontWeight: MusicTypography.bodyWeight,
                 ),
               ),
             ],
@@ -587,8 +588,8 @@ class _SettingsSectionLabel extends StatelessWidget {
         label,
         style: TextStyle(
           color: context.musicThemeTokens.textPrimary,
-          fontSize: 12,
-          fontWeight: FontWeight.w900,
+          fontSize: MusicTypography.captionSize,
+          fontWeight: MusicTypography.bodyWeight,
         ),
       ),
     );
@@ -689,8 +690,8 @@ class _SettingsTile extends StatelessWidget {
                   title,
                   style: TextStyle(
                     color: destructive ? iconColor : tokens.textPrimary,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w900,
+                    fontSize: MusicTypography.subheadlineSize,
+                    fontWeight: MusicTypography.bodyWeight,
                   ),
                 ),
                 if (subtitle.isNotEmpty) ...[
@@ -701,7 +702,7 @@ class _SettingsTile extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: tokens.textSecondary,
-                      fontSize: 10,
+                      fontSize: MusicTypography.smallCaptionSize,
                       height: 1.35,
                     ),
                   ),
@@ -818,8 +819,8 @@ class _SignOutDialog extends StatelessWidget {
               '退出登录？',
               style: TextStyle(
                 color: tokens.textPrimary,
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
+                fontSize: MusicTypography.headingSize,
+                fontWeight: MusicTypography.titleWeight,
               ),
             ),
             const SizedBox(height: 9),
@@ -827,7 +828,7 @@ class _SignOutDialog extends StatelessWidget {
               '云端数据不会删除，本机会加密保留上次账号，之后可在登录页快捷登录。你也可以在登录页移除该账号。',
               style: TextStyle(
                 color: tokens.textSecondary,
-                fontSize: 12,
+                fontSize: MusicTypography.captionSize,
                 height: 1.55,
               ),
             ),

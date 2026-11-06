@@ -26,6 +26,7 @@ import '../platform_explore_providers.dart';
 import 'platform_comments_page.dart';
 import 'platform_collection_play.dart';
 import 'platform_feedback.dart';
+import '../../themes/music_typography.dart';
 
 /// The chart interaction boundary owns pending state; protocols and complete
 /// pagination remain in repositories. Leaving this page cancels publication,
@@ -439,7 +440,7 @@ class _RankingHeaderState extends ConsumerState<PlatformRankingHeader> {
                                 TextSpan(
                                   text: '（$total）',
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: MusicTypography.subheadlineSize,
                                     color: Theme.of(
                                       context,
                                     ).colorScheme.onSurfaceVariant,
@@ -448,8 +449,8 @@ class _RankingHeaderState extends ConsumerState<PlatformRankingHeader> {
                             ],
                           ),
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
+                            fontSize: MusicTypography.bodySize,
+                            fontWeight: MusicTypography.titleWeight,
                             color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
@@ -589,7 +590,7 @@ class PlatformCollectionMasthead extends StatelessWidget {
                             Text(
                               netease ? '网易云音乐' : '酷狗音乐',
                               style: const TextStyle(
-                                fontSize: 13,
+                                fontSize: MusicTypography.footnoteSize,
                                 color: Colors.white70,
                               ),
                             ),
@@ -605,7 +606,7 @@ class PlatformCollectionMasthead extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 42,
                             height: 1.12,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: MusicTypography.titleWeight,
                             color: Colors.white,
                             letterSpacing: -1,
                           ),
@@ -624,9 +625,9 @@ class PlatformCollectionMasthead extends StatelessWidget {
                                 date,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontSize: 13,
+                                  fontSize: MusicTypography.footnoteSize,
                                   color: Colors.white70,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: MusicTypography.bodyWeight,
                                 ),
                               ),
                             ),
@@ -709,8 +710,8 @@ class _RankingScrollShellState extends State<PlatformRankingScrollShell> {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
+                                fontSize: MusicTypography.headingSize,
+                                fontWeight: MusicTypography.titleWeight,
                               ),
                             ),
                           ),
@@ -761,7 +762,10 @@ class _RankingActionCapsule extends StatelessWidget {
         final painter = TextPainter(
           text: TextSpan(
             text: action.caption,
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            style: const TextStyle(
+              fontSize: MusicTypography.captionSize,
+              fontWeight: MusicTypography.bodyWeight,
+            ),
           ),
           textScaler: scaler,
           textDirection: Directionality.of(context),
@@ -811,9 +815,9 @@ class _RankingActionCapsule extends StatelessWidget {
                           Text(
                             actions[i].caption,
                             style: const TextStyle(
-                              fontSize: 12,
+                              fontSize: MusicTypography.captionSize,
                               color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: MusicTypography.bodyWeight,
                             ),
                           ),
                         ],

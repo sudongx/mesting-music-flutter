@@ -129,4 +129,7 @@ gh pr create --repo Mesting42/mesting-music-flutter \
   --base beta --head sudongx:codex/ui-polish
 ```
 
-本轮按环境准备任务提交接续资料。具体页面的 UI 修改在用户提供目标后逐项开展。
+界面文字通过 `lib/features/themes/music_typography.dart` 集中定义字号、行高和字重。
+标题采用 Medium 500，正文与副标题采用 Regular 400，常规字级为
+34／28／22／20／17／16／15／13／12／11。新增文字样式复用主题或共享常量，
+并响应系统文字大小设置。排版层级参考 [Apple 排版指南](https://developer.apple.com/design/human-interface-guidelines/typography)。

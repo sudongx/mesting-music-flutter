@@ -151,16 +151,13 @@ class _PublicHeaderState extends ConsumerState<PlatformPublicPlaylistHeader> {
       if (download) {
         await enqueueAudioDownloads(context, ref, tracks);
       } else {
-        await lease!.withPlaybackDialog(() {
-          if (!mounted) return Future.value(false);
-          return playBetaSelection(
-            context,
-            ref,
-            tracks.first,
-            playAll: tracks,
-            stillCurrent: current,
-          );
-        });
+        await playBetaSelection(
+          context,
+          ref,
+          tracks.first,
+          playAll: tracks,
+          stillCurrent: current,
+        );
       }
     } catch (error) {
       if (mounted && current()) showPlatformFailure(context, error);

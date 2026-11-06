@@ -145,16 +145,13 @@ class _RankingHeaderState extends ConsumerState<PlatformRankingHeader> {
       final all = await _complete();
       if (!mounted) return;
       if (current() && all.isNotEmpty) {
-        await lease.withPlaybackDialog(() {
-          if (!mounted) return Future.value(false);
-          return playBetaSelection(
-            context,
-            ref,
-            all.first,
-            playAll: all,
-            stillCurrent: current,
-          );
-        });
+        await playBetaSelection(
+          context,
+          ref,
+          all.first,
+          playAll: all,
+          stillCurrent: current,
+        );
       }
     } catch (error) {
       if (mounted && current()) showPlatformFailure(context, error);

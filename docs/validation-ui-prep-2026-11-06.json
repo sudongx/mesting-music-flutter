@@ -1,0 +1,266 @@
+{
+  "date": "2026-11-06",
+  "timezone": "Asia/Shanghai",
+  "version": "1.0.60+81",
+  "baseBranch": "beta",
+  "baseCommit": "f28f57ecd27bfa4441e041553a86028abdb6422d",
+  "workBranch": "codex/ui-polish",
+  "toolchain": {
+    "flutter": "3.41.9",
+    "dart": "3.11.5",
+    "jdk": "Temurin 21.0.13+9",
+    "androidPlatform": 36,
+    "buildTools": "36.0.0",
+    "ndk": "28.2.13676358",
+    "node": "22.23.4",
+    "gh": "2.103.3",
+    "additionalPluginAndroidPlatforms": [
+      33,
+      34,
+      35
+    ],
+    "additionalPluginBuildTools": "35.0.0",
+    "cmake": "3.22.1"
+  },
+  "dependencyLockSha256": "34c7d6e357e5f08a81f85b492582c0f9a18367fa264b0548acdbf6c401ca4f51",
+  "enforcedLockfileRestorePassed": true,
+  "analysisIssues": 0,
+  "customEngineJarPatchAndLicenseHashesPassed": true,
+  "tests": {
+    "beta": {
+      "files": 199,
+      "complete": true,
+      "passed": false,
+      "counts": {
+        "success": 2284,
+        "skipped": 1,
+        "error": 6,
+        "failure": 1
+      },
+      "errors": [
+        {
+          "test": "bridge executes with official auxiliary identity, escapes HTML and revokes credentials",
+          "message": "ProcessException: No such file or directory"
+        },
+        {
+          "test": "Android direct HTTPS performs TLS and preserves the original host",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "HTTPS through an HTTP CONNECT proxy keeps exactly one TLS layer",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "network-generation change preserves an already-started DNS/TLS POST without replay",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "large HTTPS response remains a complete stream beyond the JSON bridge cap",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "first NetEase artwork decode succeeds over the Android HTTPS factory",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "official statistics, grade/music-age and medals load through real Android TLS",
+          "message": "Expected: null"
+        }
+      ],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/beta.jsonl",
+      "logSha256": "25e0c5a5fc11861629bbdf1f343f985fd8f442b7b2a51aef268ced162225302b"
+    },
+    "beta-final": {
+      "files": 199,
+      "complete": true,
+      "passed": false,
+      "counts": {
+        "success": 2284,
+        "skipped": 1,
+        "error": 6,
+        "failure": 1
+      },
+      "errors": [
+        {
+          "test": "Android direct HTTPS performs TLS and preserves the original host",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "HTTPS through an HTTP CONNECT proxy keeps exactly one TLS layer",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "network-generation change preserves an already-started DNS/TLS POST without replay",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "large HTTPS response remains a complete stream beyond the JSON bridge cap",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "closing during TLS handshake releases the connection without issuing HTTP",
+          "message": "TimeoutException after 0:00:03.000000: Future not completed"
+        },
+        {
+          "test": "first NetEase artwork decode succeeds over the Android HTTPS factory",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "official statistics, grade/music-age and medals load through real Android TLS",
+          "message": "Expected: null"
+        }
+      ],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/beta-final.jsonl",
+      "logSha256": "a7225cc235d4531c17a59bf6d4b5954d6209291deae3b616593c2e17948942f2"
+    },
+    "stable": {
+      "files": 6,
+      "complete": true,
+      "passed": true,
+      "counts": {
+        "success": 63
+      },
+      "errors": [],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/stable.jsonl",
+      "logSha256": "74f8193842d38e301a9a3bd2c6504d6ab664b8c45178631671fd9d7381f03356"
+    },
+    "navigation": {
+      "files": 1,
+      "complete": true,
+      "passed": true,
+      "counts": {
+        "success": 55
+      },
+      "errors": [],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/navigation.jsonl",
+      "logSha256": "b54a9e806f34d1a5d4bab910fd8c2f1c437d3685f4c279bd98b7b12c70136b63"
+    },
+    "beta-host-recheck": {
+      "files": 2,
+      "complete": true,
+      "passed": false,
+      "counts": {
+        "success": 4,
+        "error": 5,
+        "failure": 1
+      },
+      "errors": [
+        {
+          "test": "Android direct HTTPS performs TLS and preserves the original host",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "HTTPS through an HTTP CONNECT proxy keeps exactly one TLS layer",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "network-generation change preserves an already-started DNS/TLS POST without replay",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "large HTTPS response remains a complete stream beyond the JSON bridge cap",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "first NetEase artwork decode succeeds over the Android HTTPS factory",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "official statistics, grade/music-age and medals load through real Android TLS",
+          "message": "Expected: null"
+        }
+      ],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/beta-host-recheck.jsonl",
+      "logSha256": "e5a87264ef273c2ef5da764bd92ff634a7c86156bae89e0434279eb110785ee5"
+    },
+    "network-isolated": {
+      "files": 1,
+      "complete": true,
+      "passed": false,
+      "counts": {
+        "error": 6,
+        "success": 1,
+        "failure": 1
+      },
+      "errors": [
+        {
+          "test": "Android direct HTTPS performs TLS and preserves the original host",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "HTTPS through an HTTP CONNECT proxy keeps exactly one TLS layer",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "network-generation change preserves an already-started DNS/TLS POST without replay",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "large HTTPS response remains a complete stream beyond the JSON bridge cap",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "closing during TLS handshake releases the connection without issuing HTTP",
+          "message": "TimeoutException after 0:00:03.000000: Future not completed"
+        },
+        {
+          "test": "first NetEase artwork decode succeeds over the Android HTTPS factory",
+          "message": "HandshakeException: Handshake error in client (OS Error: "
+        },
+        {
+          "test": "official statistics, grade/music-age and medals load through real Android TLS",
+          "message": "Expected: null"
+        }
+      ],
+      "rawLog": ".codex-artifacts/ui-prep-2026-11-06/network-isolated.jsonl",
+      "logSha256": "46448a00c3b2fd7a03b44328966a82b73f53dc0c25dc1f867ffaadbd9f64d67c"
+    }
+  },
+  "hostFixtureInvestigation": {
+    "file": "test/release_155_network_test.dart",
+    "isolatedDartProbeAlsoRejectedCertificate": true,
+    "rootCauseConfirmed": false
+  },
+  "device": {
+    "model": "M2011K2C",
+    "androidApi": 34,
+    "installation": "fresh install of official latest GitHub Release, user requested",
+    "package": "com.mesting.music",
+    "versionName": "1.0.60",
+    "versionCode": 81,
+    "installSucceeded": true,
+    "welcomeScreenObserved": true,
+    "screenshot": ".codex-artifacts/ui-prep-2026-11-06/first-launch.png",
+    "fullUiBaselineComplete": false,
+    "upgradeAcceptanceComplete": false
+  },
+  "releaseApk": {
+    "url": "https://github.com/Mesting42/mesting-music-flutter/releases/download/v1.0.60/Mesting-Music-v1.0.60.apk",
+    "sha256": "f1adfd1d1c6ec2aec71489ea720328ca629d713a1b032de849c802de0d082f58",
+    "signatureVerified": true,
+    "certificateSha256": "8ce2203ad821ad8d38576f9ae86350d98254ac05f2cb974e773c1973b22e0333"
+  },
+  "localAndroidDebugBuild": {
+    "status": "passed",
+    "exitCode": 0,
+    "apk": "build/app/outputs/flutter-apk/app-beta-debug.apk",
+    "bytes": 239851028,
+    "sha256": "4287fdaa3f09722c83e83654b1a33319abf6c53deddb7ccbf33e66eb2fc0f2f2",
+    "installedOnDevice": false,
+    "rawLog": ".codex-artifacts/ui-prep-2026-11-06/android-debug-build.log",
+    "firstKotlinDaemonStartupWarningRetained": true
+  },
+  "github": {
+    "authenticated": false,
+    "deviceAuthorizationExpired": true,
+    "pushDryRun": "failed, no HTTPS credentials",
+    "pushed": false,
+    "prCreated": false
+  },
+  "remainingInputs": [
+    "GitHub authentication with repository write permission",
+    "Original signing configuration for future modified-app upgrades",
+    "User completion of welcome screen for remaining device UI capture"
+  ],
+  "dependencyLockUnchangedAfterBuild": true
+}
